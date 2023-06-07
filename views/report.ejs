@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <title>My Report</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://localhost:3000/">
+          <img
+            src="https://i.ibb.co/P4dQXm7/Logo.png"
+            width="35"
+            height="100"
+          />
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="http://localhost:3000/"> Home </a>
+
+          <a class="navbar-item" href="http://localhost:3000/AI"> Use AI </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="http://localhost:3000/healthreport" > Get My Health Report </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item" href="http://localhost:3000/finddoctors">Find Nearby Doctors </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="hero is-danger">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">See My Report!</h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-4 is-4">
+                    <form method="POST" action="/healthreport">
+                         <p style="text-align: center;">Please enter your email for getting your report!</p>
+                        <div class="field has-addons">                            
+                            <div class="control is-expanded">
+                                <input class="input" name="email" type="text" placeholder="youremail@gmail.com">
+                            </div>
+                        
+                            <div class="control">
+                                <button class="button is-link">
+                                    Get My Health Report 
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+        </div>
+        </div>
+      </div>
+    </section>
+  
+    <% if(userData !== null){ %>
+     <% if(userData[0].prediction == 'No'){ %>
+   <% if(userData[0].Age == '10 - 25'){ %>
+  <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! We strongly recommend for your to at least take 8+ glasses of water per day! And we would suggest you to get more active and manage your weight by cutting back on <tt>sugar</tt> and offering <i>healthy snacks!</i> Another way would be limiting your screen time and seeing our recommended doctors!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div>    
+<% } %>
+   <% if(userData[0].Age == "26 - 35"){ %>
+      <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! We strongly recommend to lose (even a little) weight. It would be better if you started to move more and enjoyed a healther diet! If there are further issues, always remember to visit your doctor near you to better understand the process of such a disease!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "36 - 45"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! If you feel to be overweight, try to reduce it by moving away from a poor diet and exercising more! <strong>Stop</strong> smoking <strike>tobacco</strike> at any cost for you to <b>reduce </b>your blood pressure.</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "46 - 55"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! Since you are someone at the age who usually are prone to diabetes, be more physically acttive and move to healthier plant based foods for a longer life! Eat healthy fats and skip fad diets and make healthier choices!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "56 - 66"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! More than 25% at your age are at a risk of this disease and yet you are one of the few lucky to beat that and diagnose negative through our test! But as humans we must still be cautious of this issue and reduce our carbohydrate intake and exercising regularly! You must switch from any other drink to water and reduce your food portion sizes!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "66+"){ %>
+        <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Negative</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as it should be for fighting diabetes! But it is never to late to make your body the best it can be! Being 66+ is hard and it makes you at risk to such diseases in any way! We strongly suggest seeing a doctor eitherway and focusing hugely on your diet for a much longer life! It is important to understand the food that understands <strong>YOUR</strong> body!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+<% } %>
+         <% if(userData.prediction == "Yes"){ %>
+ <% if(userData[0].Age == '10 - 25'){ %>
+  <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as slightly away from the path it should be on for fighting diabetes! But it is never to late to make your body the best it can be! We as researches from Antidiab would suggest you to stay on target with your blood sugar tests, do breathing exercises and eat healthy as a family! A better approach for you to diabetes would be to monitor exercise and keeping your school <strong>informed!</strong> As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div>    
+<% } %>
+   <% if(userData[0].Age == "26 - 35"){ %>
+      <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as slightly away from the path it should be on! But it is never to late to make your body the best it can be! We recommend reducing your stress with work and quitting smoking! You must also cut back on alcohol for a better time and keep a log of your health. As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "36 - 45"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as slightly away from the path it should be on! But it is never to late to make your body the best it can be! We suggest for you to take courses to learn about carbohydrate counting and portion sizes and try better to coordinate your meals. We would suggest avoiding sugar-sweetened beverages and talking to a doctor about an exercise plan. As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "46 - 55"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as slightly away from the path it should be on! But it is never to late to make your body the best it can be! We recommend keeping an exercise schedule and knowing your blood sugar numbers by checking them regularly! You must be prepared with glucose rich foods and stay hydrated always and try to adjust your diabetes treatment plan as needed. As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "56 - 66"){ %>
+     <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as slightly away from the path it should be on! But it is never to late to make your body the best it can be! We recommend to get a doctor's permission to drink alcohol. And we would suggest rather not to srink any alcoholic beverages frequently and start choosing your drinks carefully! You must always tally your calories and check your blood sugar level before drinking! We suggest to keep on exercising for a better output and take control of yourself to reduce stress! As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+   <% if(userData[0].Age == "66+"){ %>
+        <div class="col-sm-4" style="margin-left: 35%;">
+    <div class="card" >
+      <div class="card-body">
+        <img class="card-img-top"  src="https://cdn.iconscout.com/icon/free/png-256/recommendation-438971.png" alt="Image of Giving Recommendations">
+        <hr>
+           <h5 class="card-title" style="text-align: center;">Diabetes Report</h5>
+        <div id="content">
+     
+        <p><strong>Name: </strong> <%= userData[0].name %></p>
+        <p><strong>Age: </strong> <%= userData[0].Age %></p>
+        <p><strong>Gender: </strong> <%= userData[0].Gender %></p>
+        <p><strong>Weight: </strong> <%= userData[0].Weight %></p>
+        <p><strong>Water: </strong> <%= userData[0].Water %></p>
+        <p><strong>Predicted Diabetes Diagnosis: </strong> Positive</p>
+        <p><strong>AI Used: </strong> Zach - Antidiab AI Model 1.0</p>
+        <p><strong>Feedback: </strong> Hi <%= userData[0].name %>! We from Antidiab find your body as healthy as slightly away from the path it should be on! As we have found you in risk with this disease, we <strong>strongly</strong> suggest a balanced diet with exercise and regular blood monitoring! As always please do see someone from our <a href="http://localhost:3000/finddoctors">recommended doctors' list</a>!</p>
+    </div>
+      </div>
+      <div id="editor"></div>
+        <button class="btn btn-primary" id="download">Download</button>
+    </div>
+</div> 
+    <% } %>
+    <% } %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+   
+ <script>
+      let totalVal = '<%= userData[0] %>'
+      if (totalVal !== null) {
+ let name = '<%= userData[0].name%>' + " Health Report.pdf"
+      var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#download').click(function () {
+    doc.fromHTML($('#content').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    }, function(bla){doc.save(name);});
+  
+});
+
+      }
+      </script>
+    <% } %>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

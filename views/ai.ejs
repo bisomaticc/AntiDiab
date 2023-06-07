@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <title>Diabetes Diagnosis</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://localhost:3000/">
+          <img
+            src="https://i.ibb.co/P4dQXm7/Logo.png"
+            width="35"
+            height="100"
+          />
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="http://localhost:3000/"> Home </a>
+
+          <a class="navbar-item" href="http://localhost:3000/AI"> Use AI </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="http://localhost:3000/healthreport"> Get My Health Report </a>
+           
+              <hr class="navbar-divider" />
+              <a class="navbar-item" href="http://localhost:3000/finddoctors">Find Nearby Doctors </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Let's Diagnose!</h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-4 is-4">
+            <form method="POST" action="/AI">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <span>What is your name:</span>
+                  <input type="text" name="name" style="margin-bottom: 5%;">
+                  <br />
+                  <span>What is your email:</span>
+                  <input type="text" name="mail" style="margin-bottom: 5%;">
+                  <br />                  
+                  <span>What is your age:</span>
+                  <select name="age" style="margin-bottom: 5%">
+                    <option value="10 - 25">10 - 25</option>
+                    <option value="26 - 35">26 - 35</option>
+                    <option value="36 - 45">35 - 45</option>
+                    <option value="46 - 55">46 - 55</option>
+                    <option value="56 - 65">56 - 65</option>
+                    <option value="66+">66+</option>
+                  </select>
+                  <br />
+                  <span>What is your gender:</span>
+                  <select name="gender" style="margin-bottom: 5%">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Neuter">Neuter</option>
+                  </select>
+                  <br />
+                  <span>How much junk food do you consume:</span>
+                  <select name="food" style="margin-bottom: 5%">
+                    <option value="1 time in a week">1 time in a week</option>
+                    <option value="2 times in a week">2 times in a week</option>
+                    <option value="3 times in a week">3 times in a week</option>
+                    <option value="5 times in a week">5 times in a week</option>
+                    <option value="Entire week">Entire week</option>
+                    <option value="Not at all">Not at all</option>
+                  </select>
+                  <br />
+                  <span>How much water do you consume:</span>
+                  <select name="water" style="margin-bottom: 5%">
+                    <option value="1 - 2 glasses">1 - 2 glasses</option>
+                    <option value="3 - 4 glasses">3 - 4 glasses</option>
+                    <option value="5 - 6 glasses">5 - 6 glasses</option>
+                    <option value="7 - 8 glasses">7 - 8 glasses</option>
+                    <option value="8+ glasses">8+ glasses</option>
+                  </select>
+                  <br />
+                  <span>What is your weight:</span>
+                  <select name="weight" style="margin-bottom: 5%">
+                    <option value="10 - 30 kgs">10 - 30 kgs</option>
+                    <option value="31 - 40 kgs">31 - 40 kgs</option>
+                    <option value="41 - 50 kgs">41 - 50 kgs</option>
+                    <option value="51 - 70 kgs">51 - 70 kgs</option>
+                    <option value="70+ kgs">70+ kgs</option>
+                  </select>
+                  <br />
+                  <span>Do you feel thirsty often:</span>
+                  <select name="thirst" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+                  </select>
+                  <br />
+                  <span>Do you urinate frequently:</span>
+                  <select name="urinate" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+                  </select>
+                  <br />
+                  <span>Do you feel hungry frequently:</span>
+                  <select name="hunger" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+                  </select>
+                  <br />
+                  <span>Do you lethargic frequently:</span>
+                  <select name="lethargic" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+                  </select>
+                  <br />
+                  <span>Do you have blurred vision:</span>
+                  <select name="vision" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Maybe">Maybe</option>
+                  </select>
+                  <br />
+                  <strong>The Below Questions are YES/NO only: </strong>
+                  <br />
+                  <span>Do you have slow-healing sores:</span>
+                  <select name="healing" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <br />
+                  <span>Do you have frequent infections:</span>
+                  <select name="infection" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <br />
+                  <span
+                    >Do you have numbness or tingling in the hands or
+                    feet:</span
+                  >
+                  <select name="numbness" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <br />
+                  <span
+                    >Do you have areas of darkened skin, usually in the armpits
+                    and neck:</span
+                  >
+                  <select name="skin" style="margin-bottom: 5%">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  <br />
+                  <span>What is your salary range: :</span>
+                  <select name="income" style="margin-bottom: 5%">
+                    <option value="$100 - $500 per month">
+                      $100 - $500 per month
+                    </option>
+                    <option value="$500 - $1000 per month">
+                      $500 - $1000 per month
+                    </option>
+                    <option value="$1000 - $5000 per month">
+                      $1000 - $5000 per month
+                    </option>
+                    <option value="$5000 - $10000 per month">
+                      $100 - $500 per month
+                    </option>
+                    <option value="$10000+ per month">$10000+ per month</option>
+                  </select>
+                  <br />
+                  <span>What are your living conditions? :</span>
+                  <select name="living" style="margin-bottom: 5%">
+                    <option
+                      value="Poor, below the MIS (Minimum Income Standard)"
+                    >
+                      Poor, below the MIS (Minimum Income Standard)
+                    </option>
+                    <option
+                      value="Middle, just at the right the MIS (Minimum Income Standard)"
+                    >
+                      Middle, just at the right the MIS (Minimum Income
+                      Standard)
+                    </option>
+                    <option value="Rich, Live with a lot of luxury.">
+                      Rich, Live with a lot of luxury.
+                    </option>
+                  </select>
+                  <br />
+                  <span
+                    >How much time do you spend on exercise everyday? :</span
+                  >
+                  <select name="exercise" style="margin-bottom: 5%">
+                    <option value="Not at all">Not at all</option>
+                    <option value="30 mins">30 mins</option>
+                    <option value="1 hr">1 hr</option>
+                    <option value="2 hrs">2 hrs</option>
+                    <option value="3 hrs">3 hrs</option>
+                    <option value="3+ hrs">3+ hrs</option>
+                  </select>
+                </div>
+              
+              </div>
+                <div class="control">
+                  <button class="button is-info">Diagnose</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% if(userDATA !== null){ %>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-4 is-4" style="width: 41%;">
+               <% if(userDATA.predicted_label == "No"){ %>
+            <div class="box" >
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-50x50">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/1877/1877799.png"
+                      style="width: 15%; height: 15%; margin-left: 1.25%;"
+                      alt="Image"
+                    />
+                  </figure>
+                  <div class="content">
+                    <p>
+                      <span class="title" style="margin-left: 3%;"> Congratulations!</span>
+                      <br />
+                      <span class="subtitle"  style="margin-left: 3%;">You do not have Diabetes</span>
+                      <br />
+                   </p>
+                   <p style="width: 17%; text-align: center;">After the extereme analysis of the AI from our database,
+                      we can happily inform you that you do not have diabetes!
+                      Based on our immense database of numerous patients, we
+                      have deducted that your body is healthy! However for
+                      further precision we would recommend seeing doctors!</p>
+             <div class="buttons">
+                      <a href = "http://localhost:3000/finddoctors" class="button is-warning">
+                        <strong>Find Doctors Near Me</strong>
+                      </a>
+                      <a href = "http://localhost:3000/healthreport" class="button is-secondary">Get My AI Health Report</a>
+                    </div>
+                  </div>
+           </div>
+             </article>
+            </div>
+                <% } %> 
+                  <% if(userDATA.predicted_label == "Yes"){ %>
+                                <div class="box" >
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-50x50">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/1877/1877799.png"
+                      style="width: 10%; height: 10%; margin-left: 1.25%;"
+                      alt="Image"
+                    />
+                  </figure>
+                  <div class="content">
+                    <p>
+                      <span class="title" style="margin-left: 3%;"> Risk Detected</span>
+                      <br />
+                      <span class="subtitle"  style="margin-left: 2.5%;">You are in risk of diabtetes</span>
+                      <br />
+                   </p>
+                   <p style="width: 13%; text-align: center;">After the extereme analysis of the AI from our database,
+                      we have found that you may be in risk of the diabetes
+                      disease and would require further help and suggestions to
+                      cater to such an issue! Hence through our immense database
+                      of numerous patients, we can find possible tips for your
+                      body! However since you may be in risk of the disease we
+                      would highly recommend seeing doctors!</p>
+             <div class="buttons">
+                      <a href = "http://localhost:3000/finddoctors" class="button is-danger">
+                        <strong>Find Doctors Near Me</strong>
+                      </a>
+                      <a href = "http://localhost:3000/healthreport" class="button is-warning">Get My AI Health Report</a>
+                    </div>
+                  </div>
+           </div>
+             </article>
+            </div>
+                <% } %>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <% } %>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
